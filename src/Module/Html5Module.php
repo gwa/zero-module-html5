@@ -45,7 +45,7 @@ class Html5Module extends AbstractThemeModule
             'comment-form',
             'comment-list',
             'gallery',
-            'caption'
+            'caption',
         ]);
     }
 
