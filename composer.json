@@ -1,0 +1,48 @@
+{
+    "name"       : "gwa/zero-module-html5",
+    "type"       : "library",
+    "description": "A wordpress html5 module for the zero-library.",
+    "keywords"   : [
+        "wordpress", "zero", "library", "zero-library", "clean", "clean up", "soil"
+    ],
+    "license"    : "MIT",
+    "homepage"   : "https://github.com/gwa/zero-module-html5",
+    "support"    : {
+        "issues"      : "https://github.com/gwa/zero-module-html5/issues",
+        "source"      : "https://github.com/gwa/zero-module-html5"
+    },
+    "authors"    : [
+        {
+            "name"    : "Daniel Bannert",
+            "email"   : "bannert@greatwhiteark.com",
+            "homepage": "http://greatwhiteark.com/",
+            "role"    : "Developer"
+        }
+    ],
+    "require": {
+        "php"                                       : ">=5.4",
+        "gwa/zero-library"                          : "4.0.x-dev",
+        "gwa/wp-bridge"                             : "^2.0"
+    },
+    "require-dev": {
+        "fabpot/php-cs-fixer"                       : "~1.11",
+        "phpunit/phpunit"                           : "~4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gwa\\Wordpress\\Zero\\Module\\"        : "src/Module/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gwa\\Wordpress\\Zero\\Module\\Tests\\" : "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master"                            : "1.0-dev"
+        }
+    },
+    "minimum-stability"                             : "dev",
+    "prefer-stable"                                 : true
+}
