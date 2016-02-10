@@ -19,21 +19,22 @@ class Html5Module extends AbstractThemeModule
     public function wrapImgInFigure($content)
     {
         $callback = function ($matches) {
-            $img = $matches[1];
-            $pattern = '/ class="([^"]+)"/';
-            preg_match($pattern, $img, $imgClass);
+            $img     = $matches[1];
+            $pattern = '/class="([^"]+)"/';
 
-            $class = '';
+            preg_match($pattern, $img, $matches);
 
-            if (isset($imgClass[1])) {
-                $img   = preg_replace($pattern, '', $img);
-                $class = ' class="' . $imgClass[1] . '"';
+            $classes = $matches[1];
+            $class   = '';
+
+            if (isset($classes)) {
+                $class = ' class="' . $classes . '"';
             }
 
             return '<figure' . $class . '>' . $img . '</figure>';
         };
 
-        $content = preg_replace_callback('/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', $callback, $content);
+        $content = preg_replace_callback('/(<a .*?><img.*?><\/a>|<img.*?>)/s', $callback, $content);
 
         return $content;
     }

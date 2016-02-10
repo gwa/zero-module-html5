@@ -29,4 +29,19 @@ class Html5ModuleTest extends \PHPUnit_Framework_TestCase
     {
         $this->instance->init($this->bridge, $this->hookmanager);
     }
+
+    public function testWrapImgInFigure()
+    {
+        $actual = $this->instance->wrapImgInFigure('aa<img src="http://gteub.local/app/uploads/2015/12/12033142_966406760064780_442362630020242130_n.jpg" title="" alt="12033142_966406760064780_442362630020242130_n" class="image-embed alignright">asd');
+
+        $expected = 'aa<figure class="image-embed alignright"><img src="http://gteub.local/app/uploads/2015/12/12033142_966406760064780_442362630020242130_n.jpg" title="" alt="12033142_966406760064780_442362630020242130_n" class="image-embed alignright"></figure>asd';
+
+        $this->assertEquals($expected, $actual);
+
+        $actual = $this->instance->wrapImgInFigure('<a href="#"><img src="http://gteub.local/app/uploads/2015/12/12033142_966406760064780_442362630020242130_n.jpg" title="" alt="12033142_966406760064780_442362630020242130_n" class="image-embed alignright"></a>');
+
+        $expected = '<figure class="image-embed alignright"><a href="#"><img src="http://gteub.local/app/uploads/2015/12/12033142_966406760064780_442362630020242130_n.jpg" title="" alt="12033142_966406760064780_442362630020242130_n" class="image-embed alignright"></a></figure>';
+
+        $this->assertEquals($expected, $actual);
+    }
 }
